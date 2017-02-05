@@ -4,7 +4,6 @@ import { emailChanged } from '../actions'
 import { Card, CardSection, Input, Button } from './common'
 
 class LoginForm extends Component {
-
   onEmailChange(text) {
     this.props.emailChanged(text)
   }
@@ -12,7 +11,6 @@ class LoginForm extends Component {
   render() {
     return (
       <Card>
-
         <CardSection>
           <Input
             label="Email"
@@ -41,7 +39,7 @@ class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     email: state.auth.email
   }

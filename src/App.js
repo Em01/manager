@@ -6,6 +6,8 @@ import firebase from 'firebase'
 import reducers from './reducers'
 import LoginForm from './components/LoginForm'
 
+// const store = createStore(reducers)
+
 class App extends Component {
   componentWillMount() {
     const config = {
@@ -15,15 +17,13 @@ class App extends Component {
      storageBucket: 'manager-a7ed8.appspot.com',
      messagingSenderId: '401807125948'
    };
-   firebase.initializeApp(config);
+    firebase.initializeApp(config);
   }
 
   render() {
     return (
       <Provider store={createStore(reducers)}>
-        <View>
-          <LoginForm />
-        </View>
+        <LoginForm />
       </Provider>
     )
   }
