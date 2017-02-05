@@ -4,10 +4,16 @@ import LoginForm from './components/LoginForm'
 import EmployeeList from './components/EmployeeList'
 
 const RouterComponent = () => {
+  //with nesting you cannot go straight to a nested scene
   return (
     <Router sceneStyle={{ paddingTop: 65 }}>
-      <Scene key="login" component={LoginForm} title="Please Login" />
-      <Scene key="employeeList" component={EmployeeList} title="Employees" />
+      <Scene key="auth">
+        <Scene key="login" component={LoginForm} title="Please Login" />
+      </Scene>
+
+      <Scene key="main">
+        <Scene key="employeeList" component={EmployeeList} title="Employees" />
+      </Scene>
     </Router>
   )
 }
