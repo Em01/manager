@@ -1,5 +1,6 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
+import Communications from 'react-native-communications'
 import { connect } from 'react-redux'
 import EmployeeForm from './EmployeeForm'
 import { employeeUpdate, employeeSave } from '../actions'
@@ -17,12 +18,24 @@ class EmployeeEdit extends Component {
 
     this.props.employeeSave({ name, phone, shift, uid: this.props.employee.uid })
   }
+
+  onTextPress() {
+    const { phone, shift } = this.props
+    Communications.text(phone, `Your upcoming shift is on ${shift}`)
+  }
+
   render() {
     return (
       <Card>
         <EmployeeForm />
         <CardSection>
           <Button onPress={this.onButtonPress.bind(this)}>
+            Save Changes
+          </Button>
+        </CardSection>
+
+        <CardSection>
+          <Button onPress={this.onTexxtPress.bind(this)}>
             Save Changes
           </Button>
         </CardSection>
